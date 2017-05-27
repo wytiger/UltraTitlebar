@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.wytiger.titlebardemo.Titlebar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lt="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/titlebar"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="#ea8010"
+    android:padding="10sp"
+    lt:leftText="返回"
+    lt:leftTextColor="@android:color/white"
+    lt:leftTextSize="8sp"
+    lt:rightText="完成"
+    lt:rightTextColor="@android:color/white"
+    lt:rightTextSize="8sp"
+    lt:titleColor="@android:color/white"
+    lt:titleSize="8sp"
+    lt:titleText="标题">
+
+</com.wytiger.titlebardemo.Titlebar>
