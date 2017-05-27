@@ -108,7 +108,7 @@ public class Titlebar extends RelativeLayout {
             titleTextViewParams.addRule(RelativeLayout.CENTER_IN_PARENT);
             addView(titleTextView, titleTextViewParams);
         } else {
-            Log.w(TAG, "titlebar title is null");
+            Log.w(TAG, "titlebar center is null");
         }
 
         if (mRightImage == null & mRightText != null) {
