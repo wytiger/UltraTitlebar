@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
 /**
  * http://blog.csdn.net/ydxlt/article/details/50805822
  * Created by lt on 2016/3/4.
@@ -57,15 +56,16 @@ public class Titlebar extends RelativeLayout {
 
     private void initAttribute(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.Titlebar);
+        //左
         mLeftText = typedArray.getString(R.styleable.Titlebar_leftText);
         mLeftTextColor = typedArray.getColor(R.styleable.Titlebar_leftTextColor, Color.GRAY);
         mLeftSize = typedArray.getDimension(R.styleable.Titlebar_leftTextSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
         mLeftImage = typedArray.getDrawable(R.styleable.Titlebar_leftButtonImage);
-
+        //中
         mTitleText = typedArray.getString(R.styleable.Titlebar_titleText);
         mTitleTextColor = typedArray.getColor(R.styleable.Titlebar_titleColor, Color.GRAY);
         mTitleSize = typedArray.getDimension(R.styleable.Titlebar_titleSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
-
+        //右
         mRightText = typedArray.getString(R.styleable.Titlebar_rightText);
         mRightTextColor = typedArray.getColor(R.styleable.Titlebar_rightTextColor, Color.GRAY);
         mRightSize = typedArray.getDimension(R.styleable.Titlebar_rightTextSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
@@ -74,6 +74,49 @@ public class Titlebar extends RelativeLayout {
         typedArray.recycle();
     }
 
+    public void setLeftText(String leftText){
+        mLeftText = leftText;
+    }
+
+    public void setLeftTextColor(int leftTextColor){
+        mLeftTextColor = leftTextColor;
+    }
+
+    public void setLeftTextSize(int leftTextSize){
+        mLeftSize = leftTextSize;
+    }
+
+    public void setLeftImage(int leftImage){
+        mLeftImage = getContext().getResources().getDrawable(leftImage);
+    }
+
+    public void setTitleText(String titleText){
+        mTitleText = titleText;
+    }
+
+    public void setTitleTextColor(int titleTextColor){
+        mTitleTextColor = titleTextColor;
+    }
+
+    public void setTitleTextSize(int titleTextSize){
+        mTitleSize = titleTextSize;
+    }
+
+    public void setRightText(String rightText){
+        mRightText = rightText;
+    }
+
+    public void setRightTextColor(int rightTextColor){
+        mRightTextColor = rightTextColor;
+    }
+
+    public void setRightTextSize(int rightTextSIze){
+        mRightSize = rightTextSIze;
+    }
+
+    public void setRightImage(int rightImage){
+        mRightImage = getContext().getResources().getDrawable(rightImage);
+    }
 
     private void initView(Context context) {
         if (mLeftImage == null & mLeftText != null) {
