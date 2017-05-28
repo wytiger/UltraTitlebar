@@ -27,7 +27,7 @@ public abstract class TitleBaseActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         TAG = getClass().getSimpleName();
         initData();
-        requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
+        requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏,5.0之后无效,需要设置主题无标题栏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//强制竖屏
         setContentView(R.layout.activity_base);
     }

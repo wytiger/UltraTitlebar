@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -84,7 +85,7 @@ public class Titlebar extends RelativeLayout {
         //左侧按钮
         leftLayout = new LinearLayout(context);
         LinearLayout.LayoutParams leftLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
+        leftLayoutParams.gravity = Gravity.CENTER;
         RelativeLayout.LayoutParams leftRelativeLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         leftRelativeLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
         leftRelativeLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
@@ -113,7 +114,7 @@ public class Titlebar extends RelativeLayout {
         //右侧按钮
         rightLayout = new LinearLayout(context);
         LinearLayout.LayoutParams rightLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
+        rightLayoutParams.gravity = Gravity.CENTER;
         RelativeLayout.LayoutParams rightRelativeLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         rightRelativeLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         rightRelativeLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);

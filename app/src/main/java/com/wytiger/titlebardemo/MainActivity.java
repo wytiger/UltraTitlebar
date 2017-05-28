@@ -23,7 +23,7 @@ public class MainActivity extends TitleBaseActivity {
     protected void initTitleBar() {
         titlebar.setLeftText("定位");
         titlebar.setTitleText("主页");
-        titlebar.setRightText("");
+        titlebar.setRightText("菜单");
     }
 
     public void onTextClick(View v) {
