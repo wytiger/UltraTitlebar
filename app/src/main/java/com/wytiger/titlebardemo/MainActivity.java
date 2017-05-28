@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.wytiger.titlebardemo.basetitle.TitleBaseActivity;
+
 public class MainActivity extends TitleBaseActivity {
 
     @Override
@@ -23,6 +25,7 @@ public class MainActivity extends TitleBaseActivity {
     protected void initTitleBar() {
         titlebar.setLeftText("定位");
         titlebar.setTitleText("主页");
+        titlebar.setRightImage(R.drawable.menu);
         titlebar.setRightText("菜单");
     }
 

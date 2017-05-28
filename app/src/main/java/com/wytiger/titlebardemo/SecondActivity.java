@@ -2,6 +2,8 @@ package com.wytiger.titlebardemo;
 
 import android.os.Bundle;
 
+import com.wytiger.titlebardemo.basetitle.TitleBaseActivity;
+
 public class SecondActivity extends TitleBaseActivity {
 
     @Override

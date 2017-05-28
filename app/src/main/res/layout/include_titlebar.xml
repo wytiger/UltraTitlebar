@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.wytiger.titlebardemo.Titlebar xmlns:android="http://schemas.android.com/apk/res/android"
+<com.wytiger.titlebardemo.basetitle.Titlebar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:lt="http://schemas.android.com/apk/res-auto"
     android:id="@+id/titlebar"
     android:layout_width="match_parent"
@@ -7,15 +7,10 @@
     android:background="#ea8010"
     android:padding="10sp"
     lt:leftImage="@drawable/left_arrow"
-    lt:leftText="返回"
     lt:leftTextColor="@android:color/white"
     lt:leftTextSize="8sp"
     lt:titleText="标题"
     lt:titleColor="@android:color/white"
-    lt:titleSize="8sp"
-    lt:rightImage="@drawable/menu"
-    lt:rightText="完成"
-    lt:rightTextColor="@android:color/white"
-    lt:rightTextSize="8sp">
+    lt:titleSize="8sp">
 
-</com.wytiger.titlebardemo.Titlebar>
+</com.wytiger.titlebardemo.basetitle.Titlebar>

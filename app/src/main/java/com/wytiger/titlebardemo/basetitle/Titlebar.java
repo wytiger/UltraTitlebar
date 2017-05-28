@@ -1,4 +1,4 @@
-package com.wytiger.titlebardemo;
+package com.wytiger.titlebardemo.basetitle;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.wytiger.titlebardemo.R;
 
 /**
  * 终结自定义标题栏
@@ -66,16 +68,16 @@ public class Titlebar extends RelativeLayout {
         mLeftImage = typedArray.getDrawable(R.styleable.Titlebar_leftImage);
         mLeftText = typedArray.getString(R.styleable.Titlebar_leftText);
         mLeftTextColor = typedArray.getColor(R.styleable.Titlebar_leftTextColor, Color.GRAY);
-        mLeftTextSize = typedArray.getDimension(R.styleable.Titlebar_leftTextSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
+        mLeftTextSize = typedArray.getDimension(R.styleable.Titlebar_leftTextSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 8, getResources().getDisplayMetrics()));
         //中
         mTitleText = typedArray.getString(R.styleable.Titlebar_titleText);
         mTitleTextColor = typedArray.getColor(R.styleable.Titlebar_titleColor, Color.GRAY);
-        mTitleSize = typedArray.getDimension(R.styleable.Titlebar_titleSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
+        mTitleSize = typedArray.getDimension(R.styleable.Titlebar_titleSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 8, getResources().getDisplayMetrics()));
         //右
         mRightImage = typedArray.getDrawable(R.styleable.Titlebar_rightImage);
         mRightText = typedArray.getString(R.styleable.Titlebar_rightText);
-        mRightTextColor = typedArray.getColor(R.styleable.Titlebar_rightTextColor, Color.GRAY);
-        mRightTextSize = typedArray.getDimension(R.styleable.Titlebar_rightTextSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
+        mRightTextColor = typedArray.getColor(R.styleable.Titlebar_rightTextColor, Color.WHITE);
+        mRightTextSize = typedArray.getDimension(R.styleable.Titlebar_rightTextSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 8, getResources().getDisplayMetrics()));
 
         typedArray.recycle();
     }
@@ -176,6 +178,7 @@ public class Titlebar extends RelativeLayout {
 
     public void setLeftImage(int leftImage) {
         mLeftImage = getContext().getResources().getDrawable(leftImage);
+        leftImageView.setImageDrawable(mLeftImage);
         setLeftVisible();
     }
 
@@ -208,6 +211,8 @@ public class Titlebar extends RelativeLayout {
 
     public void setRightImage(int rightImage) {
         mRightImage = getContext().getResources().getDrawable(rightImage);
+        rightImageView.setImageDrawable(mRightImage);
+        setRightVisible();
     }
 
     public interface OnLeftClickListener {
