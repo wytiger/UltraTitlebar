@@ -1,11 +1,13 @@
 package com.wytiger.titlebardemo;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.FrameLayout;
 
 
@@ -14,17 +16,20 @@ import android.widget.FrameLayout;
  * Time: 2017/05/24
  * Desc: 业务无关的Activity基类
  */
-public abstract class BaseActivity extends AppCompatActivity implements Titlebar.OnLeftClickListener{
-    protected String TAG = "";
+public abstract class TitleBaseActivity extends AppCompatActivity
+        implements Titlebar.OnLeftClickListener,Titlebar.OnRightClickListener{
+    protected String TAG = "TitleBaseActivity";
     protected Titlebar titlebar;
     protected FrameLayout contentView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initData();
-        setContentView(R.layout.activity_base);
         TAG = getClass().getSimpleName();
+        initData();
+        requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//强制竖屏
+        setContentView(R.layout.activity_base);
     }
 
 
@@ -39,8 +44,9 @@ public abstract class BaseActivity extends AppCompatActivity implements Titlebar
             super.setContentView(R.layout.activity_base);
             //标题
             titlebar = (Titlebar) findViewById(R.id.titlebar);
-            initTitleBar();
             titlebar.setOnLeftClickListener(this);
+            titlebar.setOnRightClickListener(this);
+            initTitleBar();
             //内容
             contentView = (FrameLayout) findViewById(R.id.layout_content);
             contentView.removeAllViews();
@@ -54,6 +60,9 @@ public abstract class BaseActivity extends AppCompatActivity implements Titlebar
         }
     }
 
+    /**
+     * 子类必须重写,以设置标题
+     */
     protected abstract void initTitleBar();
 
     /**
@@ -79,11 +88,28 @@ public abstract class BaseActivity extends AppCompatActivity implements Titlebar
 
     /**
      * 点击左边,默认关闭本页面.
-     * 若不希望关闭本页面,子类可重写此方法并且不要调用super
+     * 若不希望关闭本页面,子类可重写handleLeftClick()方法处理自己的业务并返回true或者直接设置左侧点击事件.
      */
     @Override
     public void onLeftClick() {
-        finish();
-        Log.d(TAG,"onLeftClick finish");
+        //子类没有处理,则结束本页面
+        if (!handleLeftClick()){
+            finish();
+            Log.d(TAG,"onLeftClick finish");
+        }
+    }
+
+    @Override
+    public void onRightClick() {
+        //do nothing
+    }
+
+    /**
+     * 点击左边,默认关闭本页面.
+     * 若不希望关闭本页面,子类可重写此方法处理自己的业务并返回true
+     */
+    protected boolean handleLeftClick(){
+
+        return false;
     }
 }

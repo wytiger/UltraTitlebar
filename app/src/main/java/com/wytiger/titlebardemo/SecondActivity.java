@@ -2,7 +2,7 @@ package com.wytiger.titlebardemo;
 
 import android.os.Bundle;
 
-public class SecondActivity extends BaseActivity {
+public class SecondActivity extends TitleBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -12,11 +12,7 @@ public class SecondActivity extends BaseActivity {
 
     @Override
     protected void initTitleBar() {
-
+        titlebar.setTitleText("第二页");
     }
 
-    @Override
-    public void onLeftClick() {
-        super.onLeftClick();
-    }
 }

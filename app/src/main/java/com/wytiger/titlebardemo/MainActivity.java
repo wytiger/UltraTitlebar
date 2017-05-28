@@ -4,9 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends TitleBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,27 +14,19 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    public void onLeftClick() {
-//        super.onLeftClick();
-        Log.d(TAG,"onLeftClick");
+    protected boolean handleLeftClick() {
+        Log.d(TAG, "onLeftClick");
+        return true;
     }
 
     @Override
     protected void initTitleBar() {
-        titlebar.setOnButtonClickListener(new Titlebar.OnButtonClickListener() {
-            @Override
-            public void onLeftClick() {
-                Toast.makeText(MainActivity.this,"左侧按钮被点击了",Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRightClick() {
-                Toast.makeText(MainActivity.this,"右侧按钮被点击了",Toast.LENGTH_SHORT).show();
-            }
-        });
+        titlebar.setLeftText("定位");
+        titlebar.setTitleText("主页");
+        titlebar.setRightText("");
     }
 
-    public void onTextClick(View v){
-        startActivity(new Intent(this,SecondActivity.class));
+    public void onTextClick(View v) {
+        startActivity(new Intent(this, SecondActivity.class));
     }
 }
