@@ -19,7 +19,7 @@ import com.wytiger.titlebardemo.R;
  * Desc: 业务无关的Activity基类
  */
 public abstract class TitleBaseActivity extends AppCompatActivity
-        implements Titlebar.OnLeftClickListener,Titlebar.OnRightClickListener{
+        implements Titlebar.OnLeftRightClickListener{
     protected String TAG = "TitleBaseActivity";
     protected Titlebar titlebar;
     protected FrameLayout contentView;
@@ -46,9 +46,8 @@ public abstract class TitleBaseActivity extends AppCompatActivity
             super.setContentView(R.layout.activity_base);
             //标题
             titlebar = (Titlebar) findViewById(R.id.titlebar);
-            titlebar.setOnLeftClickListener(this);
-            titlebar.setOnRightClickListener(this);
-            initTitleBar();
+            titlebar.setOnLeftRightClickListener(this);
+            setTitleBar();
             //内容
             contentView = (FrameLayout) findViewById(R.id.layout_content);
             contentView.removeAllViews();
@@ -65,7 +64,7 @@ public abstract class TitleBaseActivity extends AppCompatActivity
     /**
      * 子类必须重写,以设置标题
      */
-    protected abstract void initTitleBar();
+    protected abstract void setTitleBar();
 
     /**
      * 初始化数据, 在子类的initView()之前被调用
@@ -93,17 +92,17 @@ public abstract class TitleBaseActivity extends AppCompatActivity
      * 若不希望关闭本页面,子类可重写handleLeftClick()方法处理自己的业务并返回true或者直接设置左侧点击事件.
      */
     @Override
-    public void onLeftClick() {
+    public void onTitleLeftClick() {
         //子类没有处理,则结束本页面
         if (!handleLeftClick()){
             finish();
-            Log.d(TAG,"onLeftClick finish");
+            Log.d(TAG,"onTitleLeftClick finish");
         }
     }
 
     @Override
-    public void onRightClick() {
-        //do nothing
+    public void onTitleRightClick() {
+        handleRightClick();
     }
 
     /**
@@ -113,5 +112,12 @@ public abstract class TitleBaseActivity extends AppCompatActivity
     protected boolean handleLeftClick(){
 
         return false;
+    }
+
+    /**
+     * 点击右侧
+     */
+    protected void handleRightClick(){
+
     }
 }

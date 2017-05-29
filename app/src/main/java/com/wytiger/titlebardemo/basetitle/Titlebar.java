@@ -216,11 +216,16 @@ public class Titlebar extends RelativeLayout {
     }
 
     public interface OnLeftClickListener {
-        void onLeftClick();
+        void onTitleLeftClick();
     }
 
     public interface OnRightClickListener {
-        void onRightClick();
+        void onTitleRightClick();
+    }
+
+    public interface OnLeftRightClickListener {
+        void onTitleLeftClick();
+        void onTitleRightClick();
     }
 
 
@@ -228,7 +233,7 @@ public class Titlebar extends RelativeLayout {
         leftLayout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                leftClickListener.onLeftClick();
+                leftClickListener.onTitleLeftClick();
             }
         });
     }
@@ -237,7 +242,23 @@ public class Titlebar extends RelativeLayout {
         rightLayout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                rightClickListener.onRightClick();
+                rightClickListener.onTitleRightClick();
+            }
+        });
+    }
+
+    public void setOnLeftRightClickListener(final OnLeftRightClickListener leftRightClickListener) {
+        leftLayout.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                leftRightClickListener.onTitleLeftClick();
+            }
+        });
+
+        rightLayout.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                leftRightClickListener.onTitleRightClick();
             }
         });
     }

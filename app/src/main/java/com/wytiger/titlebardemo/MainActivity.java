@@ -17,12 +17,12 @@ public class MainActivity extends TitleBaseActivity {
 
     @Override
     protected boolean handleLeftClick() {
-        Log.d(TAG, "onLeftClick");
+        Log.d(TAG, "onTitleLeftClick");
         return true;
     }
 
     @Override
-    protected void initTitleBar() {
+    protected void setTitleBar() {
         titlebar.setLeftText("定位");
         titlebar.setTitleText("主页");
         titlebar.setRightImage(R.drawable.menu);

@@ -13,7 +13,7 @@ public class SecondActivity extends TitleBaseActivity {
     }
 
     @Override
-    protected void initTitleBar() {
+    protected void setTitleBar() {
         titlebar.setTitleText("第二页");
     }
 
